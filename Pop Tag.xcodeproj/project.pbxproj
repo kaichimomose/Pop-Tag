@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		BF748EBC2080233200F2C5AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748EBB2080233200F2C5AC /* AppDelegate.swift */; };
-		BF748EBE2080233200F2C5AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748EBD2080233200F2C5AC /* ViewController.swift */; };
-		BF748EC12080233200F2C5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF748EBF2080233200F2C5AC /* Main.storyboard */; };
 		BF748EC32080233200F2C5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF748EC22080233200F2C5AC /* Assets.xcassets */; };
-		BF748EC62080233200F2C5AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF748EC42080233200F2C5AC /* LaunchScreen.storyboard */; };
+		BF748ED5208028FE00F2C5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF748ED2208028FE00F2C5AC /* Main.storyboard */; };
+		BF748ED720802A0300F2C5AC /* HashTagChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748ED620802A0300F2C5AC /* HashTagChartViewController.swift */; };
+		BF748ED92080356000F2C5AC /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748ED82080356000F2C5AC /* ChartTableViewCell.swift */; };
+		BF748EDC208039D000F2C5AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF748EDA208039D000F2C5AC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF748EB82080233200F2C5AC /* Pop Tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop Tag.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF748EBB2080233200F2C5AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF748EBD2080233200F2C5AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF748EC02080233200F2C5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF748EC22080233200F2C5AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF748EC52080233200F2C5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF748EC72080233200F2C5AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF748ED3208028FE00F2C5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF748ED620802A0300F2C5AC /* HashTagChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagChartViewController.swift; sourceTree = "<group>"; };
+		BF748ED82080356000F2C5AC /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		BF748EDB208039D000F2C5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,55 @@
 		BF748EBA2080233200F2C5AC /* Pop Tag */ = {
 			isa = PBXGroup;
 			children = (
+				BF748EDE20806F8900F2C5AC /* Customs */,
+				BF748EDD20806F6400F2C5AC /* Extensions */,
+				BF748ECF208028FE00F2C5AC /* Storyboards */,
+				BF748ECD2080288600F2C5AC /* Controllers */,
+				BF748ECE2080288600F2C5AC /* Views */,
 				BF748EBB2080233200F2C5AC /* AppDelegate.swift */,
-				BF748EBD2080233200F2C5AC /* ViewController.swift */,
-				BF748EBF2080233200F2C5AC /* Main.storyboard */,
 				BF748EC22080233200F2C5AC /* Assets.xcassets */,
-				BF748EC42080233200F2C5AC /* LaunchScreen.storyboard */,
 				BF748EC72080233200F2C5AC /* Info.plist */,
 			);
 			path = "Pop Tag";
+			sourceTree = "<group>";
+		};
+		BF748ECD2080288600F2C5AC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF748ED620802A0300F2C5AC /* HashTagChartViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF748ECE2080288600F2C5AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF748ED82080356000F2C5AC /* ChartTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF748ECF208028FE00F2C5AC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BF748EDA208039D000F2C5AC /* LaunchScreen.storyboard */,
+				BF748ED2208028FE00F2C5AC /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BF748EDD20806F6400F2C5AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF748EDE20806F8900F2C5AC /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Customs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +166,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF748EC62080233200F2C5AC /* LaunchScreen.storyboard in Resources */,
+				BF748EDC208039D000F2C5AC /* LaunchScreen.storyboard in Resources */,
 				BF748EC32080233200F2C5AC /* Assets.xcassets in Resources */,
-				BF748EC12080233200F2C5AC /* Main.storyboard in Resources */,
+				BF748ED5208028FE00F2C5AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF748EBE2080233200F2C5AC /* ViewController.swift in Sources */,
+				BF748ED92080356000F2C5AC /* ChartTableViewCell.swift in Sources */,
+				BF748ED720802A0300F2C5AC /* HashTagChartViewController.swift in Sources */,
 				BF748EBC2080233200F2C5AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,18 +188,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BF748EBF2080233200F2C5AC /* Main.storyboard */ = {
+		BF748ED2208028FE00F2C5AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF748EC02080233200F2C5AC /* Base */,
+				BF748ED3208028FE00F2C5AC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		BF748EC42080233200F2C5AC /* LaunchScreen.storyboard */ = {
+		BF748EDA208039D000F2C5AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BF748EC52080233200F2C5AC /* Base */,
+				BF748EDB208039D000F2C5AC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
