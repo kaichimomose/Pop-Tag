@@ -69,6 +69,9 @@
                                                 <rect key="frame" x="333" y="21.5" width="32" height="32"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="chart"/>
+                                                <connections>
+                                                    <action selector="chartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iUl-PW-EqS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.64081488715277779" green="0.0" blue="0.81486002604166663" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +90,21 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPJ-zp-dtw">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="303.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xUi-jI-weN">
+                                                        <rect key="frame" x="158" y="122" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="KRg-iT-qmU"/>
+                                                            <constraint firstAttribute="height" constant="60" id="veS-7r-CeI"/>
+                                                        </constraints>
+                                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="xUi-jI-weN" firstAttribute="centerY" secondItem="OPJ-zp-dtw" secondAttribute="centerY" id="3DN-al-Mu6"/>
+                                                    <constraint firstItem="xUi-jI-weN" firstAttribute="centerX" secondItem="OPJ-zp-dtw" secondAttribute="centerX" id="OGT-il-eKG"/>
+                                                </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sDh-Ya-baN">
                                                 <rect key="frame" x="0.0" y="303.5" width="375" height="303.5"/>
@@ -199,6 +216,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activeIndicator" destination="xUi-jI-weN" id="hbA-jc-arM"/>
                         <outlet property="chartButton" destination="VFA-kT-hQk" id="Vy1-1I-v2Y"/>
                         <outlet property="chartView" destination="OPJ-zp-dtw" id="Ef3-DM-FVc"/>
                         <outlet property="currentHashtag" destination="adT-xy-ry3" id="VW8-qX-5rM"/>

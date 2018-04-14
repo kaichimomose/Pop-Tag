@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HashTagChartViewController: UIViewController {
+class HashTagChartViewController: UIViewController, AlertPresentable {
     
     //MARK: Propaties
 //    private var aaChartModel: AAChartModel!
@@ -31,10 +31,25 @@ class HashTagChartViewController: UIViewController {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.activeIndicator.startAnimating()
+        
+        let chartType = UserDefaults.standard.string(forKey: "ChartType")
+        if let userChartType = chartType {
+            if userChartType == "line" {
+                aaChartType = AAChartType.Line
+            } else {
+                aaChartType = AAChartType.Column
+            }
+//            aaChartType = userChartType as! AAChartType
+        } else {
+            aaChartType = AAChartType.Line
+        }
         
         self.selectedHashTag = 0
         self.currentHashtag.text = "#" + hashTags[self.selectedHashTag]
@@ -54,20 +69,24 @@ class HashTagChartViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setDayAndTime()
         self.setLabels()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         aaChartView = AAChartView()
-       
-        aaChartView?.frame = CGRect(x: chartView.frame.origin.x, y: chartView.frame.origin.y, width: chartView.frame.size.width, height:  chartView.frame.size.height)
-//        aaChartView.addConstraints(chartView.constraints)
-         self.chartView.addSubview(aaChartView!)
-//        aaChartView.translatesAutoresizingMaskIntoConstraints = false
-//        aaChartView.topAnchor.constraint(equalTo: chartView.topAnchor).isActive = true
-//        aaChartView.widthAnchor.constraint(equalTo: chartView.widthAnchor).isActive = true
-       
-//        aaChartView.bounds.size.height = chartView.bounds.size.height
+        
+        aaChartView?.frame = chartView.frame
+        //        aaChartView.addConstraints(chartView.constraints)
+        self.chartView.addSubview(aaChartView!)
+        //        aaChartView.translatesAutoresizingMaskIntoConstraints = false
+        //        aaChartView.topAnchor.constraint(equalTo: chartView.topAnchor).isActive = true
+        //        aaChartView.widthAnchor.constraint(equalTo: chartView.widthAnchor).isActive = true
+        
+        //        aaChartView.bounds.size.height = chartView.bounds.size.height
         ///AAChartViewd的内容高度(内容高度默认和 AAChartView 等高)
-//        aaChartView?.contentHeight = chartView.frame.height
+        //        aaChartView?.contentHeight = chartView.frame.height
         
         self.loadChart()
+        self.activeIndicator.stopAnimating()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,17 +122,17 @@ class HashTagChartViewController: UIViewController {
     
     func loadChart() {
         let aaChartModel = AAChartModel.init()
-            .chartType(AAChartType.Line)//图形类型
+            .chartType(self.aaChartType)//图形类型
             .colorsTheme(["#9b43b4","#ef476f","#ffd066","#04d69f","#25547c",])//主题颜色数组
             .title("")//图形标题
             .subtitle("")//图形副标题
             .dataLabelEnabled(false)//是否显示数字
             .tooltipValueSuffix("posts/min")//浮动提示框单位后缀
             .categories(self.times)
-            //            .xAxisVisible(false)// X 轴是否可见
-            //            .yAxisVisible(false)// Y 轴是否可见
-            //            .backgroundColor("#222733")//图表背景色
-            //            .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
+            .xAxisVisible(true)// X 轴是否可见
+            .yAxisVisible(true)// Y 轴是否可见
+//            .backgroundColor("#222733")//图表背景色
+//            .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
             .series([
                 AASeriesElement()
                     .name(self.currentDay)
@@ -131,6 +150,23 @@ class HashTagChartViewController: UIViewController {
         let post = datas[self.selectedHashTag][self.currentDay]?[self.times.index(of: self.time)!]
         self.currentHashtagPostLabel.text = String(format:"%.2f", post!)
     }
+    
+    func lineChartSlected() {
+        UserDefaults.standard.set("line", forKey: "ChartType")
+        self.aaChartType = AAChartType.Line
+        self.loadChart()
+    }
+    
+    func columnChartSlected() {
+        UserDefaults.standard.set("column", forKey: "ChartType")
+        self.aaChartType = AAChartType.Column
+        self.loadChart()
+    }
+    
+    @IBAction func chartButtonTapped(_ sender: Any) {
+        selectChartType(line: lineChartSlected, column: columnChartSlected)
+    }
+    
 }
 
 extension HashTagChartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -169,4 +205,6 @@ extension HashTagChartViewController: UITableViewDelegate, UITableViewDataSource
             self.loadChart()
         }
     }
+    
+    
 }
