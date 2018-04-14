@@ -20,12 +20,13 @@ class HashTagChartViewController: UIViewController {
     private var selectedHashTag: Int!
     private var datas = [[String:[Double]]]()
     
-    private let hashTags = ["mobilephoto"]
+    private let hashTags = ["developer", "webdeveloper", "webdevelopment", "webdesigner", "mobilephoto"]
     private let times: [String] = ["0am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"]
     private let days: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     //MARK: - Outlets
     @IBOutlet weak var chartButton: UIButton!
+    @IBOutlet weak var currentHashtag: UILabel!
     @IBOutlet weak var currentHashtagPostLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -35,7 +36,9 @@ class HashTagChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedHashTag = 0
+        self.selectedHashTag = 0
+        self.currentHashtag.text = "#" + hashTags[self.selectedHashTag]
+        
         for hashTag in hashTags {
             let readCSV = ReadCSV(fileName: hashTag)
             datas.append(readCSV.createDictionaryGrouthRate())
@@ -50,7 +53,7 @@ class HashTagChartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setDayAndTime()
-        
+        self.setLabels()
         aaChartView = AAChartView()
        
         aaChartView?.frame = CGRect(x: chartView.frame.origin.x, y: chartView.frame.origin.y, width: chartView.frame.size.width, height:  chartView.frame.size.height)
@@ -123,6 +126,11 @@ class HashTagChartViewController: UIViewController {
         aaChartView.aa_drawChartWithChartModel(aaChartModel)
     }
     
+    func setLabels() {
+        self.currentHashtag.text = "#" + hashTags[self.selectedHashTag]
+        let post = datas[self.selectedHashTag][self.currentDay]?[self.times.index(of: self.time)!]
+        self.currentHashtagPostLabel.text = String(format:"%.2f", post!)
+    }
 }
 
 extension HashTagChartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -150,12 +158,15 @@ extension HashTagChartViewController: UITableViewDelegate, UITableViewDataSource
         cell.hashTagLabel.text = "#" + hashTags[row]
         cell.emojiLabel.text = "🔥"
         let post = datas[row][self.currentDay]?[self.times.index(of: self.time)!]
-        cell.postLabel.text = String(format:"%.3f", post!)
+        cell.postLabel.text = String(format:"%.2f", post!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedHashTag = indexPath.row
-        self.loadChart()
+        if self.selectedHashTag != indexPath.row {
+            self.selectedHashTag = indexPath.row
+            self.setLabels()
+            self.loadChart()
+        }
     }
 }

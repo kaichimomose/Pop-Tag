@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9BD-eU-NcE">
-                                                <rect key="frame" x="152.5" y="40.5" width="72" height="14.5"/>
+                                                <rect key="frame" x="151.5" y="40.5" width="72" height="14.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UW-zI-gsp">
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="14.5"/>
@@ -43,16 +43,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="N9C-bw-p9U">
-                                                <rect key="frame" x="124" y="14.5" width="128.5" height="24"/>
+                                                <rect key="frame" x="69" y="14.5" width="238" height="24"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adT-xy-ry3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCS-dy-Ji3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="24"/>
+                                                        <rect key="frame" x="109.5" y="0.0" width="31" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posts/min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4C-aB-ZXS">
-                                                        <rect key="frame" x="36" y="0.0" width="92.5" height="24"/>
+                                                        <rect key="frame" x="145.5" y="0.0" width="92.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -195,6 +201,7 @@
                     <connections>
                         <outlet property="chartButton" destination="VFA-kT-hQk" id="Vy1-1I-v2Y"/>
                         <outlet property="chartView" destination="OPJ-zp-dtw" id="Ef3-DM-FVc"/>
+                        <outlet property="currentHashtag" destination="adT-xy-ry3" id="VW8-qX-5rM"/>
                         <outlet property="currentHashtagPostLabel" destination="VCS-dy-Ji3" id="Nrh-OW-alA"/>
                         <outlet property="dayLabel" destination="7UW-zI-gsp" id="7aA-Us-nxw"/>
                         <outlet property="tableView" destination="sDh-Ya-baN" id="PWt-wp-tYN"/>

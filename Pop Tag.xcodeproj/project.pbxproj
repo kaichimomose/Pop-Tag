@@ -25,6 +25,10 @@
 		BF748EF820817A5C00F2C5AC /* AASeriesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748EEE20817A5C00F2C5AC /* AASeriesElement.swift */; };
 		BF748EFA20817EB800F2C5AC /* ReadCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748EF920817EB800F2C5AC /* ReadCSV.swift */; };
 		BF748EFD2081844000F2C5AC /* mobilephoto.csv in Resources */ = {isa = PBXBuildFile; fileRef = BF748EFC2081844000F2C5AC /* mobilephoto.csv */; };
+		BF7C25102081C7D400F4C902 /* webdevelopment.csv in Resources */ = {isa = PBXBuildFile; fileRef = BF7C250F2081C7D400F4C902 /* webdevelopment.csv */; };
+		BF7C25122081C87800F4C902 /* webdesigner.csv in Resources */ = {isa = PBXBuildFile; fileRef = BF7C25112081C87800F4C902 /* webdesigner.csv */; };
+		BFFF99BB2081BBD9005D3C30 /* developer.csv in Resources */ = {isa = PBXBuildFile; fileRef = BFFF99BA2081BBD9005D3C30 /* developer.csv */; };
+		BFFF99BD2081BCD1005D3C30 /* webdeveloper.csv in Resources */ = {isa = PBXBuildFile; fileRef = BFFF99BC2081BCD1005D3C30 /* webdeveloper.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		BF748EEE20817A5C00F2C5AC /* AASeriesElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AASeriesElement.swift; sourceTree = "<group>"; };
 		BF748EF920817EB800F2C5AC /* ReadCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadCSV.swift; sourceTree = "<group>"; };
 		BF748EFC2081844000F2C5AC /* mobilephoto.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mobilephoto.csv; sourceTree = "<group>"; };
+		BF7C250F2081C7D400F4C902 /* webdevelopment.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webdevelopment.csv; sourceTree = "<group>"; };
+		BF7C25112081C87800F4C902 /* webdesigner.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webdesigner.csv; sourceTree = "<group>"; };
+		BFFF99BA2081BBD9005D3C30 /* developer.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developer.csv; sourceTree = "<group>"; };
+		BFFF99BC2081BCD1005D3C30 /* webdeveloper.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webdeveloper.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +186,10 @@
 		BF748EFB2081844000F2C5AC /* CSVs */ = {
 			isa = PBXGroup;
 			children = (
+				BF7C25112081C87800F4C902 /* webdesigner.csv */,
+				BF7C250F2081C7D400F4C902 /* webdevelopment.csv */,
+				BFFF99BC2081BCD1005D3C30 /* webdeveloper.csv */,
+				BFFF99BA2081BBD9005D3C30 /* developer.csv */,
 				BF748EFC2081844000F2C5AC /* mobilephoto.csv */,
 			);
 			path = CSVs;
@@ -242,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7C25122081C87800F4C902 /* webdesigner.csv in Resources */,
 				BF748EF320817A5C00F2C5AC /* AAHighcharts-3d.js in Resources */,
 				BF748EF120817A5C00F2C5AC /* AAOptionsConstructor.js in Resources */,
 				BF748EF420817A5C00F2C5AC /* AAChartView.html in Resources */,
@@ -250,7 +263,10 @@
 				BF748ED5208028FE00F2C5AC /* Main.storyboard in Resources */,
 				BF748EF220817A5C00F2C5AC /* AAFunnel.js in Resources */,
 				BF748EFD2081844000F2C5AC /* mobilephoto.csv in Resources */,
+				BF7C25102081C7D400F4C902 /* webdevelopment.csv in Resources */,
 				BF748EEF20817A5C00F2C5AC /* AAHighchartsLib.js in Resources */,
+				BFFF99BB2081BBD9005D3C30 /* developer.csv in Resources */,
+				BFFF99BD2081BCD1005D3C30 /* webdeveloper.csv in Resources */,
 				BF748EF020817A5C00F2C5AC /* AAHighchartsMore.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

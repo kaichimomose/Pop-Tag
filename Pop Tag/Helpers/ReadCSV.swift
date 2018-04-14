@@ -40,7 +40,7 @@ final class ReadCSV {
         
         for i in 1..<csvRows.count - 1 {
             if  csvRows[i][3] == day {
-                rates.append(Double(csvRows[i][1])!)
+                rates.append(Double(String(format: "%.2f", Double(csvRows[i][1])!))!)
             } else {
                 
             }
