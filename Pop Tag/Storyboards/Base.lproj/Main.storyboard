@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9BD-eU-NcE">
-                                                <rect key="frame" x="140.5" y="40.5" width="95.5" height="14.5"/>
+                                                <rect key="frame" x="152.5" y="40.5" width="72" height="14.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UW-zI-gsp">
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="14.5"/>
@@ -36,12 +36,6 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6-7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWf-yd-7tb">
                                                         <rect key="frame" x="51" y="0.0" width="21" height="14.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrC-B8-FUh">
-                                                        <rect key="frame" x="77" y="0.0" width="18.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -179,6 +173,12 @@
                                                 </prototypes>
                                             </tableView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OPJ-zp-dtw" firstAttribute="top" secondItem="B7j-hp-X0a" secondAttribute="top" id="HEG-sj-y6I"/>
+                                            <constraint firstItem="OPJ-zp-dtw" firstAttribute="leading" secondItem="B7j-hp-X0a" secondAttribute="leading" id="REp-fz-Os8"/>
+                                            <constraint firstItem="sDh-Ya-baN" firstAttribute="top" secondItem="OPJ-zp-dtw" secondAttribute="bottom" id="dHl-js-vfY"/>
+                                            <constraint firstAttribute="trailing" secondItem="OPJ-zp-dtw" secondAttribute="trailing" id="dYv-SH-GRE"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -193,11 +193,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ampmLabel" destination="xrC-B8-FUh" id="j97-wP-Hkl"/>
                         <outlet property="chartButton" destination="VFA-kT-hQk" id="Vy1-1I-v2Y"/>
                         <outlet property="chartView" destination="OPJ-zp-dtw" id="Ef3-DM-FVc"/>
                         <outlet property="currentHashtagPostLabel" destination="VCS-dy-Ji3" id="Nrh-OW-alA"/>
-                        <outlet property="dateLabel" destination="7UW-zI-gsp" id="jGm-I7-Ciy"/>
+                        <outlet property="dayLabel" destination="7UW-zI-gsp" id="7aA-Us-nxw"/>
                         <outlet property="tableView" destination="sDh-Ya-baN" id="PWt-wp-tYN"/>
                         <outlet property="timeLabel" destination="vWf-yd-7tb" id="KgC-i9-5J3"/>
                     </connections>
