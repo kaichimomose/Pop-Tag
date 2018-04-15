@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CD200CF208354390008ECB3 /* mobileartistry.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CD200CE208354390008ECB3 /* mobileartistry.csv */; };
+		6CD200D1208354440008ECB3 /* programmer.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CD200D0208354440008ECB3 /* programmer.csv */; };
+		6CD200D32083544B0008ECB3 /* programming.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CD200D22083544B0008ECB3 /* programming.csv */; };
 		BF29FC9620826F41008BAED4 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29FC9520826F41008BAED4 /* AlertHelper.swift */; };
 		BF748EBC2080233200F2C5AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF748EBB2080233200F2C5AC /* AppDelegate.swift */; };
 		BF748EC32080233200F2C5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF748EC22080233200F2C5AC /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6CD200CE208354390008ECB3 /* mobileartistry.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mobileartistry.csv; sourceTree = "<group>"; };
+		6CD200D0208354440008ECB3 /* programmer.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = programmer.csv; sourceTree = "<group>"; };
+		6CD200D22083544B0008ECB3 /* programming.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = programming.csv; sourceTree = "<group>"; };
 		BF29FC9520826F41008BAED4 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		BF748EB82080233200F2C5AC /* Pop Tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop Tag.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF748EBB2080233200F2C5AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +200,9 @@
 				BFFF99BC2081BCD1005D3C30 /* webdeveloper.csv */,
 				BFFF99BA2081BBD9005D3C30 /* developer.csv */,
 				BF748EFC2081844000F2C5AC /* mobilephoto.csv */,
+				6CD200CE208354390008ECB3 /* mobileartistry.csv */,
+				6CD200D0208354440008ECB3 /* programmer.csv */,
+				6CD200D22083544B0008ECB3 /* programming.csv */,
 			);
 			path = CSVs;
 			sourceTree = "<group>";
@@ -261,6 +270,7 @@
 				BF748EF320817A5C00F2C5AC /* AAHighcharts-3d.js in Resources */,
 				BF748EF120817A5C00F2C5AC /* AAOptionsConstructor.js in Resources */,
 				BF748EF420817A5C00F2C5AC /* AAChartView.html in Resources */,
+				6CD200D1208354440008ECB3 /* programmer.csv in Resources */,
 				BF748EDC208039D000F2C5AC /* LaunchScreen.storyboard in Resources */,
 				BF748EC32080233200F2C5AC /* Assets.xcassets in Resources */,
 				BF748ED5208028FE00F2C5AC /* Main.storyboard in Resources */,
@@ -270,7 +280,9 @@
 				BF748EEF20817A5C00F2C5AC /* AAHighchartsLib.js in Resources */,
 				BFFF99BB2081BBD9005D3C30 /* developer.csv in Resources */,
 				BFFF99BD2081BCD1005D3C30 /* webdeveloper.csv in Resources */,
+				6CD200CF208354390008ECB3 /* mobileartistry.csv in Resources */,
 				BF748EF020817A5C00F2C5AC /* AAHighchartsMore.js in Resources */,
+				6CD200D32083544B0008ECB3 /* programming.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

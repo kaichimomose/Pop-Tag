@@ -20,7 +20,7 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
     private var selectedHashTag: Int!
     private var datas = [[String:[Double]]]()
     
-    private let hashTags = ["developer", "webdeveloper", "webdevelopment", "webdesigner", "mobilephoto"]
+    private let hashTags = ["developer", "webdeveloper", "webdevelopment", "webdesigner", "mobilephoto", "mobileartistry", "programmer", "programming"]
     private let times: [String] = ["0am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"]
     private let days: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -75,16 +75,7 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
         aaChartView = AAChartView()
         
         aaChartView?.frame = chartView.frame
-        //        aaChartView.addConstraints(chartView.constraints)
         self.chartView.addSubview(aaChartView!)
-        //        aaChartView.translatesAutoresizingMaskIntoConstraints = false
-        //        aaChartView.topAnchor.constraint(equalTo: chartView.topAnchor).isActive = true
-        //        aaChartView.widthAnchor.constraint(equalTo: chartView.widthAnchor).isActive = true
-        
-        //        aaChartView.bounds.size.height = chartView.bounds.size.height
-        ///AAChartViewd的内容高度(内容高度默认和 AAChartView 等高)
-        //        aaChartView?.contentHeight = chartView.frame.height
-        
         self.loadChart()
         self.activeIndicator.stopAnimating()
     }
