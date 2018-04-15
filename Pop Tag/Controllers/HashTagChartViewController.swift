@@ -20,7 +20,7 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
     private var selectedHashTag: Int!
     private var datas = [[String:[Double]]]()
     
-    private let hashTags = ["developer", "webdeveloper", "webdevelopment", "webdesigner", "mobilephoto", "mobileartistry", "programmer", "programming"]
+    private let hashTags = ["developer", "webdeveloper", "webdevelopment", "webdesigner", "programmer", "programming", "mobilephoto", "mobileartistry"]
     private let times: [String] = ["0am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"]
     private let days: [String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -37,14 +37,20 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        aaChartView = AAChartView()
+        self.chartView.addSubview(aaChartView!)
+        
+        self.chartView.bringSubview(toFront: activeIndicator)
         self.activeIndicator.startAnimating()
         
         let chartType = UserDefaults.standard.string(forKey: "ChartType")
         if let userChartType = chartType {
             if userChartType == "line" {
                 aaChartType = AAChartType.Line
-            } else {
+            } else if userChartType == "column"{
                 aaChartType = AAChartType.Column
+            } else {
+                aaChartType = AAChartType.Spline
             }
 //            aaChartType = userChartType as! AAChartType
         } else {
@@ -59,8 +65,6 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
             datas.append(readCSV.createDictionaryGrouthRate())
         }
         
-        self.chartButton.imageView?.image = UIImage(named: "chart")?.withRenderingMode(.alwaysTemplate)
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -72,12 +76,11 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        aaChartView = AAChartView()
-        
+        //set aaChartView Constrains
         aaChartView?.frame = chartView.frame
-        self.chartView.addSubview(aaChartView!)
         self.loadChart()
         self.activeIndicator.stopAnimating()
+        self.chartView.sendSubview(toBack: self.activeIndicator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,8 +157,14 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
         self.loadChart()
     }
     
+    func splineChartSlected() {
+        UserDefaults.standard.set("spline", forKey: "ChartType")
+        self.aaChartType = AAChartType.Spline
+        self.loadChart()
+    }
+    
     @IBAction func chartButtonTapped(_ sender: Any) {
-        selectChartType(line: lineChartSlected, column: columnChartSlected)
+        selectChartType(line: lineChartSlected, column: columnChartSlected, spline: splineChartSlected)
     }
     
 }
@@ -183,7 +192,7 @@ extension HashTagChartViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChartTableViewCell", for: indexPath) as! ChartTableViewCell
         let row = indexPath.row
         cell.hashTagLabel.text = "#" + hashTags[row]
-        cell.emojiLabel.text = "🔥"
+        cell.emojiLabel.text = ""
         let post = datas[row][self.currentDay]?[self.times.index(of: self.time)!]
         cell.postLabel.text = String(format:"%.2f", post!)
         return cell

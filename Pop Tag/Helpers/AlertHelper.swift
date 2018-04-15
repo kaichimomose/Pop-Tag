@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 protocol AlertPresentable: class {
-    func selectChartType(line: @escaping () -> (), column: @escaping () -> ())
+    func selectChartType(line: @escaping () -> (), column: @escaping () -> (), spline: @escaping () -> ())
 }
 
 extension AlertPresentable where Self: UIViewController {
-    func selectChartType(line: @escaping () -> (), column: @escaping () -> ()) {
+    func selectChartType(line: @escaping () -> (), column: @escaping () -> (), spline: @escaping () -> ()) {
         let actionSheet = UIAlertController(
             title: "Select chart type.",
             message: nil,
@@ -27,6 +27,15 @@ extension AlertPresentable where Self: UIViewController {
                 style: .default,
                 handler: { _ in
                     line()
+            })
+        )
+        
+        actionSheet.addAction(
+            UIAlertAction(
+                title: "Spline Chart",
+                style: .default,
+                handler: { _ in
+                    spline()
             })
         )
         
