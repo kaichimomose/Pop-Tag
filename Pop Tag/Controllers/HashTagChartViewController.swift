@@ -63,6 +63,7 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,9 +81,19 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
         self.activeIndicator.stopAnimating()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(handleRefresh),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.lightGray
+        
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh() {
+        setDayAndTime()
+        self.refreshControl.endRefreshing()
     }
     
     func setDayAndTime() {
@@ -115,23 +126,19 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
         let aaChartModel = AAChartModel.init()
             .chartType(self.aaChartType)//图形类型
             .colorsTheme(["#9b43b4","#ef476f","#ffd066","#04d69f","#25547c",])//主题颜色数组
-            .title("")//图形标题
-            .subtitle("")//图形副标题
-            .dataLabelEnabled(false)//是否显示数字
-            .tooltipValueSuffix("posts/min")//浮动提示框单位后缀
+            .title("")
+            .subtitle("")/
+            .dataLabelEnabled(false)
+            .tooltipValueSuffix("posts/min")
             .categories(self.times)
-            .xAxisVisible(true)// X 轴是否可见
-            .yAxisVisible(true)// Y 轴是否可见
-//            .backgroundColor("#222733")//图表背景色
-//            .animationType(AAChartAnimationType.Bounce)//图形渲染动画类型为"bounce"
+            .xAxisVisible(true)
+            .yAxisVisible(true)
             .series([
                 AASeriesElement()
                     .name(self.currentDay)
                     .data(self.datas[self.selectedHashTag][self.currentDay]!)
                     .toDic()!,
                 ])
-        
-        //        self.configureTheStyleForDifferentTypeChart()
         
         aaChartView.aa_drawChartWithChartModel(aaChartModel)
     }
