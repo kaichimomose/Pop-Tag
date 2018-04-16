@@ -130,7 +130,7 @@ class HashTagChartViewController: UIViewController, AlertPresentable {
             .chartType(self.aaChartType)//图形类型
             .colorsTheme(["#9b43b4","#ef476f","#ffd066","#04d69f","#25547c",])//主题颜色数组
             .title("")
-            .subtitle("")/
+            .subtitle("")
             .dataLabelEnabled(false)
             .tooltipValueSuffix("posts/min")
             .categories(self.times)
